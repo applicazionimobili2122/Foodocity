@@ -1,0 +1,27 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu *ngIf="(utente$ | async) as utente">
+      <ion-header>
+        <ion-toolbar color="secondary" class="user-profile">
+          <ion-item>
+            <ion-label>
+              <ion-text color="light">
+                <h1><strong> {{utente.cognome + ' ' + utente.nome}}</strong></h1>
+              </ion-text>
+              <ion-menu-toggle auto-hide="false">
+                <ion-button fill="solid" size="small" color="light" (click)="profilo()">
+                  <ion-icon name="contact"></ion-icon>Profilo</ion-button>
+                <ion-button fill="solid" size="small" color="light" (click)="logout()">
+                  <ion-icon name="log-out"></ion-icon>Esci</ion-button>
+              </ion-menu-toggle>
+            </ion-label>
+          </ion-item>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="bg-profile">
+
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
